@@ -1,0 +1,46 @@
+<h1>Hi</h1>
+
+<form *ngIf="quizes" #f="ngForm">
+  <!--<ul *ngFor="let quiz of quizes; let i = index">-->
+    <!--{{ i + 1 }} - {{quiz.question}}-->
+    {{quiz.question}}
+    <div *ngFor="let answer of quiz.answers; index as j">
+
+    <input  type="radio"
+            class="form-control"
+            ngModel
+            id="answer"
+            name="answer"
+            (change)="checkAnswer(answer)"
+            [value]="answer"
+            required>{{answer}}
+
+    </div>
+  <!--</ul>-->
+
+
+<button type="button" class="btn" (click)="prev()">prev</button>
+  <button type="button" class="btn" (click)="done()">DONE</button>
+<button type="button" class="btn" (click)="next(f)"
+        [disabled]="!f.valid">next</button>
+
+</form>
+
+<!--(change)="VerifyAnswer(answer, $event)"-->
+<!--id="{{i}}-{{answer}}"-->
+
+<!--(click)="checkAnswer(answer)"-->
+<!--
+<div class="btn-group" dropdown>
+  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+    Button dropdown <span class="caret"></span>
+  </button>
+  <ul *dropdownMenu class="dropdown-menu" role="menu">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+    </li>
+  </ul>
+</div>-->
